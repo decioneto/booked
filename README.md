@@ -18,7 +18,8 @@ App for booklovers search and organize their books.
 - Favorite your most liked books;
 - Discover other books from those that you liked;
 - Find out were they are avalable for sell;
-- Chose between light and dark mode.
+- Chose between light and dark mode;
+- Fully responsive and accessible
 
 ## My process
 
@@ -28,6 +29,7 @@ App for booklovers search and organize their books.
 - React Js;
 - Typescript;
 - Styled-components;
+- Radix UI;
 - Axios.
 
 ## Author
