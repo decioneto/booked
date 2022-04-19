@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
+type LoginButtonProps = {
+  onMobile?: true;
+}
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -11,6 +15,11 @@ export const Container = styled.div`
   @media(min-width: 1440px) {
     padding: 3rem 0 0;
   }
+
+  @media(max-width: 750px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const LogoHeader = styled.div`
@@ -18,6 +27,13 @@ export const LogoHeader = styled.div`
 
   @media(min-width: 1440px) {
     height: 54px;
+  }
+
+  @media(max-width: 750px) {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
   }
 
   img {
@@ -66,7 +82,6 @@ export const SearchInputContainer = styled.div`
     right: 0;
     transform: translateY(-50%);
     cursor: pointer;
-
     img {
       width: 100%;
       margin: auto;
@@ -75,13 +90,19 @@ export const SearchInputContainer = styled.div`
   }
 `;
 
-export const LoginButton = styled.a`
+export const LoginButton = styled.a<LoginButtonProps>`
   border: 0;
   border-radius: 5px;
   background-color: var(--gray-600);
   padding: 0.75rem;
   color: var(--purple-100);
   text-decoration: none;
+  white-space: nowrap;
+  display: ${ props => props.onMobile ? "none" : "block" };
+
+  @media(max-width: 750px) {
+    display: ${ props => props.onMobile ? "block" : "none" };
+  }
 
   &:hover {
     filter: brightness(0.98);

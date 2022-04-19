@@ -23,6 +23,8 @@ function Header() {
           src={logoLight} 
           alt="Logotype being a open book on the left with the text Bokeed on the right" 
         />
+
+        <LoginButton href='/login' onMobile>Login with Google</LoginButton>
       </LogoHeader>
       
       <SearchInputContainer>
