@@ -1,6 +1,7 @@
 import  styled  from 'styled-components'
 import Searchlist from './Pages/Searchlist'
 import Header from "./components/Header"
+import MainPage from './Pages/MainPage';
 
 const  Container = styled.div`
   max-width: 1580px;
@@ -22,11 +23,13 @@ const  Container = styled.div`
 
 function App() {
   return (
-    <Container>
-      <Header />
+    <MainPage />
 
-      <Searchlist />
-    </Container>
+    // <Container>
+    //   <Header />
+
+    //   <Searchlist />
+    // </Container>
   );
 }
 
