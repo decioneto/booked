@@ -1,15 +1,13 @@
-import * as Label from '@radix-ui/react-label'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import * as Switch from '@radix-ui/react-switch'
+import SearchInput from '../SearchInput'
 
 import logoLight from '../../assets/images/logo-light.png'
 import logoDark from '../../assets/images/logo-dark.png'
-import searchIcon from '../../assets/images/search.svg'
 
 import { 
   Container, 
   LogoHeader, 
-  SearchInputContainer,
   LoginButton,
   Avatar,
   AvatarImage 
@@ -24,22 +22,10 @@ function Header() {
           alt="Logotype being a open book on the left with the text Bokeed on the right" 
         />
 
-        <LoginButton href='/login' onMobile>Login with Google</LoginButton>
+        <LoginButton href='/login' inMobile>Login with Google</LoginButton>
       </LogoHeader>
       
-      <SearchInputContainer>
-        <Label.Root htmlFor='main-search'>Search</Label.Root>
-        <input 
-          type="text" 
-          name="main-search" 
-          id="main-search" 
-          className='form-input'
-          placeholder='Search by author, book name...'
-        />
-        <div className='icon-search'>
-          <img src={searchIcon} alt="Search icon" />
-        </div>
-      </SearchInputContainer>
+      <SearchInput />
 
       <LoginButton href='/login'>Login with Google</LoginButton>
 
