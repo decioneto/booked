@@ -60,11 +60,18 @@ export default createGlobalStyle`
     --danger-200: #B63228;
     --danger-300: #7A221B;
 
+    --button-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.12);
+
+    --mobile: 640px;
+    --tablet-pt: 960px;
+    --tablet-ls: 1200px;
+    --desktop: 1800px;
+
     @media (max-width: 1080px) {
       font-size: 93.75%;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 960px) {
       font-size: 87.5%;
     }
   }

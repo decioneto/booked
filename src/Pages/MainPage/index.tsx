@@ -1,13 +1,13 @@
-import SearchInput from "../../components/SearchInput"
-
 import LogoImage from '../../assets/images/logo-light.png'
 import CanvasImage from '../../assets/images/Draw.png'
+import GoogleIcon from '../../assets/images/google.png'
 
 import {
   Container,
   MainPageContainer,
   Logo,
   Title,
+  SearchComponent,
   Separator,
   LoginBox,
   LoginButton,
@@ -15,6 +15,8 @@ import {
 } from './styles'
 
 function MainPage() {
+  const imageURL = String(CanvasImage);
+
   return (
     <Container>
       <MainPageContainer>
@@ -27,24 +29,24 @@ function MainPage() {
           <p>read?</p>
         </Title>
 
-        <SearchInput />        
+        <SearchComponent />        
         <Separator />
 
         <LoginBox>
-          <h5>Not Logged yet?</h5>
+          <h5>Not logged yet?</h5>
           <p>
             Login with your google account and descover, save and make your
             own library to keep your reading organized.
           </p>
 
           <LoginButton>
-            <img src="" alt="" />
+            <img src={GoogleIcon} alt="" />
             Sign in with Google
           </LoginButton>
         </LoginBox>
       </MainPageContainer>
       
-      <Canvas imagem=""/>
+      <Canvas imagem={imageURL}/>
     </Container>
   )
 }
