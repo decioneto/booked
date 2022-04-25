@@ -36,7 +36,7 @@ function MainPage() {
         <LoginBox>
           <h5>Not logged yet?</h5>
           <p>
-            Login with your google account and descover, save and make your
+            Login with your google account and discover, save and make your
             own library to keep your reading organized.
           </p>
 
