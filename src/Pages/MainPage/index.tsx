@@ -1,3 +1,5 @@
+import SearchInput from "../../components/SearchInput"
+
 import LogoImage from '../../assets/images/logo-light.png'
 import CanvasImage from '../../assets/images/Draw.png'
 import GoogleIcon from '../../assets/images/google.png'
@@ -7,7 +9,6 @@ import {
   MainPageContainer,
   Logo,
   Title,
-  SearchComponent,
   Separator,
   LoginBox,
   LoginButton,
@@ -29,7 +30,7 @@ function MainPage() {
           <p>read?</p>
         </Title>
 
-        <SearchComponent />        
+        <SearchInput autoWidth />        
         <Separator />
 
         <LoginBox>

@@ -5,7 +5,11 @@ import SearchIcon from '../../assets/images/search.svg'
 
 import { Container } from './styles'
 
-function SearchInput() {
+export interface SearchInputProps {
+  autoWidth?: boolean;
+}
+
+function SearchInput({ autoWidth }: SearchInputProps) {
   const [queryValue, setQueryValue] = useState('')
 
   const submitQuery = (event: FormEvent) => {
@@ -14,7 +18,7 @@ function SearchInput() {
   }
 
   return (
-    <Container>
+    <Container autoWidth={autoWidth}>
       <Label.Root htmlFor='main-search'>Search</Label.Root>
         <form id='search-form' onSubmit={submitQuery} />
         <input 

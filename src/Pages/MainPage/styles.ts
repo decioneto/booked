@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SearchInput from "../../components/SearchInput"
 
 
 interface CanvasProps {
@@ -49,10 +48,6 @@ export const Title = styled.h1`
       margin-bottom: 1.5rem;
     }
   }
-`;
-
-export const SearchComponent = styled(SearchInput)`
-  max-width: inherit; 
 `;
 
 export const Separator = styled.div`

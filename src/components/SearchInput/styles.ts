@@ -1,9 +1,11 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+import { SearchInputProps } from '.'
+
+export const Container = styled.div<SearchInputProps>`
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: ${({ autoWidth }) => autoWidth ? "inherit" : "500px" };
   transition: transform 0.2s cubic-bezier(0.9, -0.4, 0.17, 1.28);
 
   form {
