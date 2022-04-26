@@ -83,7 +83,17 @@ export const LoginBox = styled.div`
   }
 `;
 
-export const LoginButton = styled.div`
+export const LinkLogout = styled.a`
+  color: var(--purple-100);
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const LoginButton = styled.button`
   background-color: var(--purple-100);
   color: var(--gray-500);
   padding: 0.75rem 3rem;
@@ -96,6 +106,7 @@ export const LoginButton = styled.div`
   cursor: pointer;
   transition: filter 0.2s linear, box-shadow 0.2s ease-in-out;
   white-space: nowrap;
+  border: 0;
 
   &:hover {
     filter: brightness(1.10);
