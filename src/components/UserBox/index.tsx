@@ -8,7 +8,7 @@ function UserBox() {
 
   return (
     <Container>
-      <img src={user?.avatar} alt="Avatar image" />
+      <img src={String(user?.avatar)} alt="Avatar image" />
       <p>{user?.name}</p>
     </Container>
   )

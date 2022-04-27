@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   img {
     display: block;
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
   }
 

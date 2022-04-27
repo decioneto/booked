@@ -29,22 +29,19 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       if(user) {
         const { uid, displayName, email, photoURL  } = user
 
-        if(!displayName) {
+        if(!displayName || !photoURL) {
           throw new Error('Missing information from Google Account')
         }
 
         setUser({
           id: uid,
           name: displayName,
-          avatar: String(photoURL),
+          avatar: photoURL,
           email: String(email),
         })
       }
     })
-
-
-    console.log(user)
-
+    
     return () => unsubscribe()
   }, [user?.id])
 
@@ -55,23 +52,16 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         if(result.user) {
           const { uid, displayName, email, photoURL } = result.user
 
-          if(!displayName) {
+          if(!displayName || !photoURL) {
             throw new Error('Missing information from Google Account')
           }
 
           setUser({
             id: uid,
             name: displayName,
-            avatar: String(photoURL),
+            avatar: photoURL,
             email: String(email),
           })
-
-          // localStorage.setItem('user', JSON.stringify({
-          //   id: uid,
-          //   name: displayName,
-          //   email: email,
-          //   avatar: photoURL
-          // }))
         
         }
       })

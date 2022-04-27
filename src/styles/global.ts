@@ -39,7 +39,7 @@ export default createGlobalStyle`
     --gray-400: #ECECEE;
     --gray-500: #F3F3F5;
     --gray-600: #FAFAFA;
-    --gray-600: #FFF;
+    --white: #FFF;
 
     --purple-100: #651FFF;
     --purple-200: #4C17BF;

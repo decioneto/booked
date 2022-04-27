@@ -1,19 +1,30 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import * as Switch from '@radix-ui/react-switch'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/AuthContext'
+
 import SearchInput from '../SearchInput'
+import UserBox from '../UserBox'
 
 import logoLight from '../../assets/images/logo-light.png'
+import GoogleIcon from '../../assets/images/google.png'
 import logoDark from '../../assets/images/logo-dark.png'
 
 import { 
   Container, 
-  LogoHeader, 
+  LogoHeader,
   LoginButton,
-  Avatar,
-  AvatarImage 
+  DropdownMenuRoot,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  SwitchRoot,
+  SwitchThumb
+
 } from './styles'
 
 function Header() {
+  const { signInWithGoogle, user, logout } = useContext(AuthContext)
+
   return (
     <Container>
       <LogoHeader>
@@ -22,32 +33,45 @@ function Header() {
           alt="Logotype being a open book on the left with the text Bokeed on the right" 
         />
 
-        <LoginButton href='/login' inMobile>Login with Google</LoginButton>
+        <LoginButton onClick={signInWithGoogle} inMobile>
+          <img src={GoogleIcon} alt="" />
+          Sign in with Google
+        </LoginButton>
       </LogoHeader>
       
       <SearchInput />
 
-      <LoginButton href='/login'>Login with Google</LoginButton>
+      {
+        user
+          ? (
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger>
+                <UserBox />
+              </DropdownMenuTrigger>
 
-      {/* <DropdownMenu.Root>
-        <BtnLogin>
-          <Avatar>
-            <span>Login with Google</span>
-            <AvatarImage></AvatarImage>
-          </Avatar>
-        </BtnLogin>
-
-        <DropdownMenu.Content>
-          <DropdownMenu.Item>
-            <label htmlFor="theme-switch">
-              Dark mode
-            </label>
-            <Switch.Root>
-              <Switch.Thumb id='theme-switch' />
-            </Switch.Root>
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Root> */}
+            <DropdownMenuContent>
+              <DropdownMenuItem disabled>
+                <label htmlFor="theme-switch">
+                  Dark mode
+                </label>
+                <SwitchRoot>
+                  <SwitchThumb id='theme-switch' />
+                </SwitchRoot>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={logout}>
+                <span className='btn-logout'>Logout</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenuRoot>
+          )
+          : (
+            <LoginButton onClick={signInWithGoogle}>
+              <img src={GoogleIcon} alt="" />
+              Sign in with Google
+            </LoginButton>
+          )
+      }
 
     </Container>
   )

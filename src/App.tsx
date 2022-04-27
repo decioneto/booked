@@ -6,7 +6,7 @@ import MainPage from './Pages/MainPage';
 const  Container = styled.div`
   max-width: 1580px;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0 3rem;
 
   @media(min-width: 1680px) {
     max-width: 1580px;
@@ -23,13 +23,13 @@ const  Container = styled.div`
 
 function App() {
   return (
-    <MainPage />
+    // <MainPage />
 
-    // <Container>
-    //   <Header />
+    <Container>
+      <Header />
 
-    //   <Searchlist />
-    // </Container>
+      <Searchlist />
+    </Container>
   );
 }
 
