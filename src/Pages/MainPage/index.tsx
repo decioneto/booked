@@ -12,7 +12,7 @@ import {
   Canvas
 } from './styles'
 
-function MainPage() {
+export function MainPage() {
   const imageURL = String(CanvasImage);
 
   return (
@@ -35,5 +35,3 @@ function MainPage() {
     </Container>
   )
 }
-
-export default MainPage

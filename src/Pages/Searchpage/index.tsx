@@ -5,7 +5,7 @@ import {
   Container
 } from './styles'
 
-function SearchPage() {
+export function SearchPage() {
   return (
     <Container>
       <Header />
@@ -14,5 +14,3 @@ function SearchPage() {
     </Container>
   )
 }
-
-export default SearchPage
