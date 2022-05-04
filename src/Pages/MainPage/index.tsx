@@ -27,7 +27,7 @@ export function MainPage() {
           <p>read?</p>
         </Title>
 
-        <SearchInput autoWidth />        
+        <SearchInput autoWidth isHome/>        
 
       </MainPageContainer>
       

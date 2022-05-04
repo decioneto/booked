@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext'
+import { SearchContextProvider } from './context/SearchContext'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from './styles/global'
@@ -15,14 +16,16 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={ <MainPage /> }/>
-            <Route path="/search/:q" element={ <SearchPage /> }/>
-          </Routes>
-        </BrowserRouter>
+        <SearchContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={ <MainPage /> }/>
+              <Route path="/search/:q" element={ <SearchPage /> }/>
+            </Routes>
+          </BrowserRouter>
 
-        <GlobalStyle />
+          <GlobalStyle />
+        </SearchContextProvider>
       </AuthContextProvider>
     </ThemeProvider>
   );

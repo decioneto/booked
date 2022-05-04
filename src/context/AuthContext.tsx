@@ -1,9 +1,11 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import { auth, provider } from '../services/firebase'
 import { signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
 import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
 import { DefaultTheme } from 'styled-components';
+
+import { BooksListProps } from '../models/BooksListResponse'
 
 interface AuthContextProps {
   user: UserData | undefined;
@@ -31,7 +33,6 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     const unsubscribe = onAuthStateChanged(auth, user => {
       if(user) {
         const { uid, displayName, email, photoURL  } = user
-        console.log(user)
 
         if(!displayName || !photoURL) {
           throw new Error('Missing information from Google Account')
@@ -83,7 +84,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     <AuthContext.Provider value={{
       user,
       signInWithGoogle,
-      logout,
+      logout
     }} >
       { children }
     </AuthContext.Provider>
