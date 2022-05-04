@@ -88,7 +88,7 @@ export default createGlobalStyle`
     font-weight: var(--body-weight);
     font-size: var(--body-md);
     color: var(--dark-purple-100);
-    background-color: var(--gray-600);
+    background-color: ${props => props.theme.colors.backgroundColor};
   }
 
   button {

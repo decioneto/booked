@@ -1,14 +1,15 @@
-import { useContext } from 'react'
-import { AuthContext } from '../../context/AuthContext'
-
+import { UserData } from '../../context/AuthContext'
 import { Container } from'./styles'
 
-function UserBox() {
-  const { user } = useContext(AuthContext)
+interface UserBoxProps {
+  user: UserData;
+}
+
+function UserBox({ user }: UserBoxProps) {
 
   return (
     <Container>
-      <img src={String(user?.avatar)} alt="Avatar image" />
+      <img src={user?.avatar} alt="Avatar image" />
       <p>{user?.name}</p>
     </Container>
   )

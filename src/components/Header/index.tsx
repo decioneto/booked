@@ -15,8 +15,10 @@ import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuArrow,
   SwitchRoot,
   SwitchThumb
 
@@ -33,10 +35,37 @@ function Header() {
           alt="Logotype being a open book on the left with the text Bokeed on the right" 
         />
 
-        <LoginButton onClick={signInWithGoogle} inMobile>
-          <img src={GoogleIcon} alt="" />
-          Sign in with Google
-        </LoginButton>
+        {
+          user
+            ? (
+              <DropdownMenuRoot>
+                <DropdownMenuTrigger isMobile>
+                  <UserBox user={user} />
+                </DropdownMenuTrigger>
+
+              <DropdownMenuContent>
+                <DropdownMenuItem disabled>
+                  <label htmlFor="theme-switch">
+                    Dark mode
+                  </label>
+                  <SwitchRoot onChange={() => {}}>
+                    <SwitchThumb id='theme-switch' />
+                  </SwitchRoot>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={logout}>
+                  <span className='btn-logout'>Logout</span>
+                </DropdownMenuItem>
+                <DropdownMenuArrow height={0} />
+              </DropdownMenuContent>
+            </DropdownMenuRoot>
+            )
+            : (
+              <LoginButton onClick={signInWithGoogle} className="mobile">
+                Sign in with Google
+              </LoginButton>
+            )
+        }
       </LogoHeader>
       
       <SearchInput />
@@ -46,18 +75,21 @@ function Header() {
           ? (
             <DropdownMenuRoot>
               <DropdownMenuTrigger>
-                <UserBox />
+                <UserBox user={user} />
               </DropdownMenuTrigger>
 
             <DropdownMenuContent>
-              <DropdownMenuItem disabled>
-                <label htmlFor="theme-switch">
-                  Dark mode
-                </label>
-                <SwitchRoot>
-                  <SwitchThumb id='theme-switch' />
-                </SwitchRoot>
-              </DropdownMenuItem>
+            <DropdownMenuArrow />
+              <DropdownMenuGroup>
+                <DropdownMenuItem disabled>
+                  <label htmlFor="theme-switch">
+                    Dark mode
+                  </label>
+                  <SwitchRoot onChange={() => {}}>
+                    <SwitchThumb id='theme-switch' />
+                  </SwitchRoot>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={logout}>
                 <span className='btn-logout'>Logout</span>
@@ -66,8 +98,7 @@ function Header() {
           </DropdownMenuRoot>
           )
           : (
-            <LoginButton onClick={signInWithGoogle}>
-              <img src={GoogleIcon} alt="" />
+            <LoginButton onClick={signInWithGoogle} className="web">
               Sign in with Google
             </LoginButton>
           )

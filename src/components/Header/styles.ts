@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import * as Switch from '@radix-ui/react-switch'
 
-interface LoginButtonProps {
-  inMobile?: boolean;
+interface DropdownMenuResponsiveProps {
+  isMobile?: boolean;
 }
 
 export const Container = styled.div`
@@ -42,47 +42,54 @@ export const LogoHeader = styled.div`
   }
 `;
 
-export const LoginButton = styled.button<LoginButtonProps>`
-  background-color: var(--purple-100);
-  color: var(--gray-500);
-  padding: 0.75rem 3rem;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
+export const LoginButton = styled.button`
+  background-color: transparent;
+  color: var(--purple-100);
+  padding: 0.75rem 1rem;
+  display: none;
   margin-top: 0.75rem;
   cursor: pointer;
-  transition: filter 0.2s linear, box-shadow 0.2s ease-in-out;
-  white-space: nowrap;
   border: 0;
-  display: ${ ({ inMobile }) => inMobile ? "none" : "flex" };
-
-  @media(max-width: 750px) {
-    display: ${ ({ inMobile }) => inMobile ? "flex" : "none" };
-  }
 
   &:hover {
-    filter: brightness(1.10);
-    box-shadow: var(--button-shadow);
+    text-decoration: underline;
+  }
+
+  &.mobile {
+    @media(max-width: 750px) {
+     display: flex;
+    }
+  }
+
+  &.web {
+    @media(min-width: 750px) {
+     display: flex;
+    }
   }
 `;
 
 export const DropdownMenuRoot = styled(DropdownMenu.Root)`
 `;
 
-export const DropdownMenuTrigger = styled(DropdownMenu.Trigger)`
+export const DropdownMenuTrigger = styled(DropdownMenu.Trigger)<DropdownMenuResponsiveProps>`
   border: 0;
   background-color: transparent;
+  display: ${({ isMobile }) => isMobile ? "none" : "block"};
+  margin-bottom: 10px;
+
+  @media(max-width: 750px) {
+    display: ${({ isMobile }) => isMobile ? "block" : "none"};
+  }
 `;
 
 export const DropdownMenuContent = styled(DropdownMenu.Content)`
   background-color: var(--gray-600);
   padding: 0.5rem;
   border-radius: 8px;
-  margin-top: 10px;
   box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.12);
 `;
+
+export const DropdownMenuGroup = styled(DropdownMenu.Group) ``;
 
 export const DropdownMenuItem = styled(DropdownMenu.Item)`
   padding: 0.25rem 2rem;
@@ -110,6 +117,11 @@ export const DropdownMenuSeparator = styled(DropdownMenu.Separator)`
   height: 1px;
   width: 100%;
   background-color: var(--gray-300);
+`;
+
+export const DropdownMenuArrow = styled(DropdownMenu.Arrow)`
+  fill: var(--gray-600);
+  top: 10px;
 `;
 
 export const SwitchRoot = styled(Switch.Root)`
