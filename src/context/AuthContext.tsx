@@ -1,9 +1,12 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { auth, provider } from '../services/firebase'
 import { signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
+import light from '../styles/themes/light';
+import dark from '../styles/themes/dark';
+import { DefaultTheme } from 'styled-components';
 
 interface AuthContextProps {
-  user: User | undefined;
+  user: UserData | undefined;
   signInWithGoogle: () => void;
   logout: () => void;
 }
@@ -12,7 +15,7 @@ interface AuthContextProviderProps {
   children: ReactNode;
 }
 
-interface User {
+export interface UserData {
   id: string;
   name: string;
   avatar: string;
@@ -22,12 +25,13 @@ interface User {
 export const AuthContext = createContext({} as AuthContextProps)
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
-  const [user, setUser] = useState<User>()
+  const [user, setUser] = useState<UserData>()
 
   useEffect(() =>{
     const unsubscribe = onAuthStateChanged(auth, user => {
       if(user) {
         const { uid, displayName, email, photoURL  } = user
+        console.log(user)
 
         if(!displayName || !photoURL) {
           throw new Error('Missing information from Google Account')
@@ -79,7 +83,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     <AuthContext.Provider value={{
       user,
       signInWithGoogle,
-      logout
+      logout,
     }} >
       { children }
     </AuthContext.Provider>
