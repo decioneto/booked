@@ -5,7 +5,7 @@ interface UserBoxProps {
   user: UserData;
 }
 
-function UserBox({ user }: UserBoxProps) {
+export function UserBox({ user }: UserBoxProps) {
 
   return (
     <Container>
@@ -14,5 +14,3 @@ function UserBox({ user }: UserBoxProps) {
     </Container>
   )
 }
-
-export default UserBox

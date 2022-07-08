@@ -1,11 +1,10 @@
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 
-import SearchInput from '../SearchInput'
-import UserBox from '../UserBox'
+import { SearchInput } from '../SearchInput'
+import { UserBox } from '../UserBox'
 
 import logoLight from '../../assets/images/logo-light.png'
-import GoogleIcon from '../../assets/images/google.png'
 import logoDark from '../../assets/images/logo-dark.png'
 
 import { 
@@ -24,7 +23,7 @@ import {
 
 } from './styles'
 
-function Header() {
+export function Header() {
   const { signInWithGoogle, user, logout } = useContext(AuthContext)
 
   return (
@@ -107,5 +106,3 @@ function Header() {
     </Container>
   )
 }
-
-export default Header

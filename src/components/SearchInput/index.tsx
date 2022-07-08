@@ -14,7 +14,7 @@ export interface SearchInputProps {
   isHome?: boolean;
 }
 
-function SearchInput({ autoWidth, isHome }: SearchInputProps) {
+export function SearchInput({ autoWidth, isHome }: SearchInputProps) {
   const [queryValue, setQueryValue] = useState('')
   const { booksList, populateBooksList } = useContext(SearchContext)
   const navigate = useNavigate()
@@ -52,5 +52,3 @@ function SearchInput({ autoWidth, isHome }: SearchInputProps) {
     </Container>
   )
 }
-
-export default SearchInput

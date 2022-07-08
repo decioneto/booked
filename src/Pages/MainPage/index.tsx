@@ -1,4 +1,4 @@
-import SearchInput from "../../components/SearchInput"
+import { SearchInput } from "../../components/SearchInput"
 
 import LogoImage from '../../assets/images/logo-light.png'
 import CanvasImage from '../../assets/images/Draw.png'
