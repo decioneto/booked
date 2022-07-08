@@ -67,7 +67,6 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
             avatar: photoURL,
             email: String(email),
           })
-        
         }
       })
       .catch(err => console.error(err))

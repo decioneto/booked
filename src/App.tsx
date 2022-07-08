@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext'
 import { SearchContextProvider } from './context/SearchContext'
 import { ThemeProvider } from 'styled-components'
+import { Router } from './Router'
 
 import GlobalStyle from './styles/global'
-import { SearchPage } from './Pages/Searchpage'
-import { MainPage } from './Pages/MainPage'
 import light from './styles/themes/light'
 import dark from './styles/themes/dark'
 
@@ -18,12 +17,8 @@ function App() {
       <AuthContextProvider>
         <SearchContextProvider>
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={ <MainPage /> }/>
-              <Route path="/search/:q" element={ <SearchPage /> }/>
-            </Routes>
+            <Router />
           </BrowserRouter>
-
           <GlobalStyle />
         </SearchContextProvider>
       </AuthContextProvider>
