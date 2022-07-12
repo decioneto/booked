@@ -5,7 +5,7 @@ import { SearchInputProps } from '.'
 export const Container = styled.div<SearchInputProps>`
   position: relative;
   width: 100%;
-  max-width: ${({ autoWidth }) => autoWidth ? "inherit" : "500px" };
+  max-width: ${({ autoWidth }) => autoWidth ? "inherit" : "600px" };
   transition: transform 0.2s cubic-bezier(0.9, -0.4, 0.17, 1.28);
 
   form {

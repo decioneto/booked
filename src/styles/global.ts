@@ -101,4 +101,55 @@ export default createGlobalStyle`
     font-size: var(--body-md);
     color: var(--dark-purple-100);
   }
+
+  .button {
+    padding: 0 1rem;
+    height: 48px;
+    border-radius: 5px;
+    border: 0;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-purple-100);
+  }
+
+  .primary-button {
+    background-color: var(--purple-100);
+    color: #fff;
+
+    &:hover {
+      background-color: var(--purple-200);
+    }
+
+    &:active {
+      background-color: var(--purple-300);
+    }
+
+    &:focus {
+      background-color: var(--purple-100);
+      outline: 2px solid var(--purple-300);
+    }
+  }
+
+  .tertiary-button {
+    background-color: var(--gray-600);
+    color: var(--dark-purple-100);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    &:focus {
+      background-color: var(--gray-600);
+      outline: 2px solid var(--purple-100);
+      color: var(--purple-100);
+    }
+  }
 `;

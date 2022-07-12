@@ -5,7 +5,12 @@ import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
 import { DefaultTheme } from 'styled-components';
 
-import { BooksListProps } from '../models/BooksListResponse'
+export interface UserData {
+  id: string;
+  name: string;
+  avatar: string;
+  email: string;
+}
 
 interface AuthContextProps {
   user: UserData | undefined;
@@ -15,13 +20,6 @@ interface AuthContextProps {
 
 interface AuthContextProviderProps {
   children: ReactNode;
-}
-
-export interface UserData {
-  id: string;
-  name: string;
-  avatar: string;
-  email: string;
 }
 
 export const AuthContext = createContext({} as AuthContextProps)
@@ -50,26 +48,29 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     return () => unsubscribe()
   }, [user?.id])
 
-  function signInWithGoogle() {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        
-        if(result.user) {
-          const { uid, displayName, email, photoURL } = result.user
+  async function signInWithGoogle() {
+    const result = await signInWithPopup(auth, provider)
 
-          if(!displayName || !photoURL) {
-            throw new Error('Missing information from Google Account')
-          }
+    console.log(result)
 
-          setUser({
-            id: uid,
-            name: displayName,
-            avatar: photoURL,
-            email: String(email),
-          })
-        }
-      })
-      .catch(err => console.error(err))
+    // signInWithPopup(auth, provider)
+    // .then( result => {
+      
+    //   if(result.user) {
+    //     const { uid, displayName, email, photoURL } = result.user
+
+    //     if(!displayName || !photoURL) {
+    //       throw new Error('Missing information from Google Account')
+    //     }
+
+    //     setUser({
+    //       id: uid,
+    //       name: displayName,
+    //       avatar: photoURL,
+    //       email: String(email),
+    //     })
+    //   }
+    // })
   }
 
   function logout() {

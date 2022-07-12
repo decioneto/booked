@@ -1,3 +1,4 @@
+import { FilterBox } from '../../components/FilterBox'
 import { Header } from '../../components/Header'
 import { Searchlist } from '../../components/Searchlist'
 
