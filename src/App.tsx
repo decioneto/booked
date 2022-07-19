@@ -15,12 +15,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthContextProvider>
-        <SearchContextProvider>
-          <BrowserRouter>
+        <BrowserRouter>
+          <SearchContextProvider>
             <Router />
-          </BrowserRouter>
           <GlobalStyle />
-        </SearchContextProvider>
+          </SearchContextProvider>
+        </BrowserRouter>
       </AuthContextProvider>
     </ThemeProvider>
   );

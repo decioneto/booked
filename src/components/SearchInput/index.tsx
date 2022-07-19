@@ -16,39 +16,29 @@ export interface SearchInputProps {
 
 export function SearchInput({ autoWidth, isHome }: SearchInputProps) {
   const [queryValue, setQueryValue] = useState('')
-  const { booksList, populateBooksList } = useContext(SearchContext)
-  const navigate = useNavigate()
+  const { queryBooks } = useContext(SearchContext)
 
   const submitQuery = (event: FormEvent) => {
     event.preventDefault()
-    api.get(`volumes?q=${queryValue}`)
-      .then(response => {
-        populateBooksList(response)
-
-        if(isHome) {
-          navigate(`/search/q=${queryValue}`)
-        }
-      })
-      .catch(err => console.log(err))
-
-      
+    queryBooks(queryValue)
   }
 
   return (
     <Container autoWidth={autoWidth}>
       <Label.Root htmlFor='main-search'>Search</Label.Root>
-        <form id='search-form' onSubmit={submitQuery} />
-        <input 
-          type="text"
-          id="main-search" 
-          className='form-input'
-          placeholder='Search by author, book name...'
-          onChange={(e)=> {setQueryValue(e.target.value)}}
-          value={queryValue}
-        />
-        <button type='submit' form='search-form' className='btn-search' >
-          <img src={SearchIcon} alt="Search image icon" />
-        </button>
+        <form id='search-form' onSubmit={submitQuery}>
+          <input 
+            type="text"
+            id="main-search" 
+            className='form-input'
+            placeholder='Search by author, book name...'
+            onChange={(e)=> {setQueryValue(e.target.value)}}
+            value={queryValue}
+          />
+          <button type='submit' form='search-form' className='btn-search' >
+            <img src={SearchIcon} alt="Search image icon" />
+          </button>
+        </form>
     </Container>
   )
 }

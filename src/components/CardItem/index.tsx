@@ -1,29 +1,59 @@
+import { useNavigate } from "react-router-dom"
 import {
   Container
 } from "./styles"
 
-import BookImage from '../../assets/images/book-img.png'
+interface CardItemProps {
+  id: string
+  title: string;
+  thumbnail: string | undefined;
+  authors: string[];
+  publisher: string | undefined;
+  publishDate: string;
+  description: string;
+}
 
-export function CardItem() {
+export function CardItem(props: CardItemProps) {
+  const navigate = useNavigate()
+
+  function moreDetailLink() {
+    navigate(`details/${props.id}`)
+  }
+
   return (
     <Container>
       <div className="img">
-        <img src={BookImage} alt="" />
+        {
+          props.thumbnail
+          ? (
+            <img src={props.thumbnail} alt={props.title} referrerPolicy="no-referrer"/>
+          )
+          : (
+            <div className="placeholder">{props.title}</div>
+          )
+        }
       </div>
 
       <div className="infos">
-        <h4>The Letters of J. R. R. Tolkien</h4>
+        <h4>{props.title}</h4>
         <p>
-          by <a href="#">Humphrey Carpenter</a>, 
-          <a href="#"> Christopher Tolkien</a></p>
-        <p>Publisher: <a href="#">HarperCollins Publishers</a></p>
-        <p>Published: <span>December 13, 2012</span></p>
-        <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec nisi risus, libero libero, non facilisi. Vitae adipiscing sollicitudin.
+          by
+          {
+            props.authors.map(author => (
+              <a href={`https://www.google.com/search?q=${author}`} target="_blank"> {author}</a>
+            ))
+          }
         </p>
+        <p>Publisher: 
+          <a href={`https://www.google.com/search?q=${props.publisher}`} target="_blank">
+            &nbsp;{props.publisher}
+          </a>
+        </p>
+        <p>Published: <span>{props.publishDate}</span></p>
+        <p className="description">{props.description}</p>
 
         <div className="button-group">
-          <a href="#" className="button tertiary-button">More details</a>
+          <button className="button tertiary-button" onClick={moreDetailLink}>More details</button>
           <button className="button primary-button">Add to my library</button>
         </div>
       </div>

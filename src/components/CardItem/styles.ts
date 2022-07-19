@@ -4,12 +4,16 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
+  box-shadow: var(--button-shadow);
+  padding: 1rem;
+  border-radius: 0.75rem;
 
   .img {
     height: 100%;
     width: 100%;
     max-height: 240px;
-    max-width: 180px;
+    max-width: 160px;
+    flex: 1;
 
     img {
       width: 100%;
@@ -17,12 +21,26 @@ export const Container = styled.div`
       object-fit: contain;
       object-position: top;
     }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--gray-200);
+      border-radius: 0.75rem;
+      color: var(--gray-50);
+      padding: 0.5rem;
+    }
   }
 
   .infos {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    flex: 1;
 
     h4 {
       font-family: var(--title-font-family);
@@ -37,6 +55,9 @@ export const Container = styled.div`
 
       &.description {
         color: var(--dark-purple-100);
+        max-height: 120px;
+        overflow: hidden;
+        text-overflow: clip;
       }
 
       & > a {
@@ -54,7 +75,7 @@ export const Container = styled.div`
     }
 
     .button-group {
-      margin-top: auto;
+      margin-top: 1rem;
       display: flex;
       gap: 8px;
     }

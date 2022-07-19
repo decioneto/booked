@@ -7,6 +7,7 @@ export function Router() {
     <Routes>
       <Route path="/" element={ <MainPage /> }/>
       <Route path="/search/:q" element={ <SearchPage /> }/>
+      <Route path="/search/:q/details/:bookId" element={ <div>detalhes</div> }/>
     </Routes>
   )
 }
