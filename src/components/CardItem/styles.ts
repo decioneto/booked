@@ -58,6 +58,7 @@ export const Container = styled.div`
         max-height: 120px;
         overflow: hidden;
         text-overflow: clip;
+        margin-bottom: 1rem;
       }
 
       & > a {
@@ -75,7 +76,7 @@ export const Container = styled.div`
     }
 
     .button-group {
-      margin-top: 1rem;
+      margin-top: auto;
       display: flex;
       gap: 8px;
     }

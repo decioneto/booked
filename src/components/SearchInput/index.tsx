@@ -1,9 +1,7 @@
 import { useState, useContext } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
 import * as Label from '@radix-ui/react-label'
 import { FormEvent } from 'react';
 import { SearchContext } from '../../context/SearchContext'
-import { api } from '../../services/api'
 
 import SearchIcon from '../../assets/images/search.svg'
 
@@ -36,7 +34,7 @@ export function SearchInput({ autoWidth, isHome }: SearchInputProps) {
             value={queryValue}
           />
           <button type='submit' form='search-form' className='btn-search' >
-            <img src={SearchIcon} alt="Search image icon" />
+            <img src={SearchIcon} alt="Search icon" />
           </button>
         </form>
     </Container>

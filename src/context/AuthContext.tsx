@@ -1,9 +1,6 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import { auth, provider } from '../services/firebase'
 import { signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
-import light from '../styles/themes/light';
-import dark from '../styles/themes/dark';
-import { DefaultTheme } from 'styled-components';
 
 export interface UserData {
   id: string;

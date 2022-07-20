@@ -8,7 +8,6 @@ import {
   MainPageContainer,
   Logo,
   Title,
-  Separator,
   Canvas
 } from './styles'
 

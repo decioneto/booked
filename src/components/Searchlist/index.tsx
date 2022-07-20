@@ -25,7 +25,7 @@ export function Searchlist() {
                 description={book.volumeInfo.description}
                 publisher={book.volumeInfo.publisher}
                 publishDate={book.volumeInfo.publishedDate}
-                thumbnail={book.volumeInfo.imageLinks?.smallThumbnail}
+                thumbnail={book.volumeInfo.imageLinks?.thumbnail}
               />
             ))
           }

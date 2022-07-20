@@ -5,7 +5,6 @@ import { SearchInput } from '../SearchInput'
 import { UserBox } from '../UserBox'
 
 import logoLight from '../../assets/images/logo-light.png'
-import logoDark from '../../assets/images/logo-dark.png'
 
 import { 
   Container, 

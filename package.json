@@ -8,6 +8,7 @@
     "@radix-ui/react-label": "^0.1.5",
     "@radix-ui/react-select": "^0.1.1",
     "@radix-ui/react-switch": "^0.1.5",
+    "@radix-ui/react-tabs": "^0.1.5",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",

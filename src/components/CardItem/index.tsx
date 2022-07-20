@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { Button } from "../../styles/componentStyles";
 import {
   Container
 } from "./styles"
@@ -40,21 +41,21 @@ export function CardItem(props: CardItemProps) {
           by
           {
             props.authors.map(author => (
-              <a href={`https://www.google.com/search?q=${author}`} target="_blank"> {author}</a>
+              <a href={`https://www.google.com/search?q=${author}`} target="_blank" rel="noreferrer"> {author}</a>
             ))
           }
         </p>
         <p>Publisher: 
-          <a href={`https://www.google.com/search?q=${props.publisher}`} target="_blank">
+          <a href={`https://www.google.com/search?q=${props.publisher}`} target="_blank" rel="noreferrer">
             &nbsp;{props.publisher}
           </a>
         </p>
         <p>Published: <span>{props.publishDate}</span></p>
         <p className="description">{props.description}</p>
 
-        <div className="button-group">
-          <button className="button tertiary-button" onClick={moreDetailLink}>More details</button>
-          <button className="button primary-button">Add to my library</button>
+        <div className="button-group" onClick={moreDetailLink}>
+          <Button className="tertiary-button">More details</Button>
+          <Button className="primary-button">Add to my library</Button>
         </div>
       </div>
     </Container>

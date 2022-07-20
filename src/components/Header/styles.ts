@@ -12,6 +12,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 2rem 0 0;
   gap: 1rem;
+  margin-bottom: 3.75rem;
 
   @media(min-width: 1440px) {
     padding: 3rem 0 0;
