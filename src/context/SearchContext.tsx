@@ -20,13 +20,12 @@ export function SearchContextProvider({ children }:SearchContextProviderProps) {
 
   function queryBooks(queryValue: string) {
     api.get(`volumes?q=${queryValue}`).then(response => {
-        const queryResponse: BooksListProps = response.data
+      const queryResponse: BooksListProps = response.data
 
-        setBooksList(queryResponse)
-        
-        navigate(`/search/q=${queryValue}`)
-        console.log(booksList)
-      }).catch(err => console.log(err))
+      setBooksList(queryResponse)
+      
+      navigate(`/search/q=${queryValue}`)
+    }).catch(err => console.log(err))
   }
 
   return (

@@ -18,7 +18,7 @@ export function Searchlist() {
           {
             booksList.items.map(book => (
               <CardItem 
-                key={book.id}
+                key={book.etag}
                 id={book.id}
                 title={book.volumeInfo.title}
                 authors={book.volumeInfo.authors}

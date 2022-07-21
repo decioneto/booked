@@ -87,8 +87,18 @@ export default createGlobalStyle`
     font-family: var(--body-font-family);
     font-weight: var(--body-weight);
     font-size: var(--body-md);
+    line-height: 1.5rem;
     color: var(--dark-purple-100);
     background-color: ${props => props.theme.colors.backgroundColor};
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      background-color: var(--gray-200);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--purple-100);
+    }
   }
 
   button {

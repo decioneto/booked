@@ -94,4 +94,52 @@ export const TabContent = styled(Tabs.Content)`
   border-radius: 0.75rem;
   padding: 1.5rem;
   box-shadow: var(--button-shadow);
+
+  .tab-title {
+    font-family: var(--title-font-family);
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    display: block;
+    border-bottom: 1px solid var(--purple-100);
+    padding-bottom: 1rem;
+  }
+`;
+
+export const AuthorBox = styled.div`
+  background-color: var(--white);
+  margin-top: 2rem;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--button-shadow);
+
+  .title {
+    font-family: var(--title-font-family);
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    display: block;
+    border-bottom: 1px solid var(--purple-100);
+    padding-bottom: 1rem;
+  }
+
+  .author {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    margin-top: 1.5rem;
+
+    .bio-infos {
+      h4 {
+        font-family: var(--title-font-family);
+        font-size: var(--h4-font-size);
+        font-weight: var(--h4-font-weight);
+        line-height: 1.75rem;
+      }
+
+      small {
+        font-size: var(--body-sm);
+        line-height: 1.25rem;
+        color: var(--gray-50);
+      }
+    }
+  }
 `;

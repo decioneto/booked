@@ -72,6 +72,7 @@ export const LoginBox = styled.div`
     text-align: center;
     padding: 0 4rem;
     font-size: var(--body-sm);
+    line-height: 1.25rem;
 
     @media(max-width: 640px) {
       padding: 0 5rem !important;

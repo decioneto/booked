@@ -86,4 +86,14 @@ export const Button = styled.button`
       color: var(--purple-100);
     }
   }
+
+  &.icon {
+    gap: 0.5rem;
+    align-items: center;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
 `;

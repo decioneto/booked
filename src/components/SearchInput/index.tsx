@@ -2,8 +2,7 @@ import { useState, useContext } from 'react'
 import * as Label from '@radix-ui/react-label'
 import { FormEvent } from 'react';
 import { SearchContext } from '../../context/SearchContext'
-
-import SearchIcon from '../../assets/images/search.svg'
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 
 import { Container } from './styles'
 
@@ -34,7 +33,7 @@ export function SearchInput({ autoWidth, isHome }: SearchInputProps) {
             value={queryValue}
           />
           <button type='submit' form='search-form' className='btn-search' >
-            <img src={SearchIcon} alt="Search icon" />
+            <MagnifyingGlassIcon color='var(--purple-100)' width={24} height={24} />
           </button>
         </form>
     </Container>

@@ -18,7 +18,7 @@ function App() {
         <BrowserRouter>
           <SearchContextProvider>
             <Router />
-          <GlobalStyle />
+            <GlobalStyle />
           </SearchContextProvider>
         </BrowserRouter>
       </AuthContextProvider>
